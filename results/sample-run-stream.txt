@@ -1,0 +1,9 @@
+US East (Ashburn)  
+Asia Pacific (Tokyo)  
+Europe (Frankfurt)
+
+SSE events relayed: 86 (text deltas: 18)
+event types: ['response.completed', 'response.content_part.added', 'response.content_part.done', 'response.created', 'response.in_progress', 'response.output_item.added', 'response.output_item.done', 'response.output_text.delta', 'response.output_text.done', 'response.reasoning_part.added', 'response.reasoning_part.done', 'response.reasoning_text.delta', 'response.reasoning_text.done']
+final_metrics: {"total_cached_tokens": 64, "total_completion_tokens": 83, "total_prompt_tokens": 76, "total_steps": 2}
+steps: 2
+trajectory: /Users/brona/dev/local/nemo-relay/results/oci-responses-stream-trajectory.json

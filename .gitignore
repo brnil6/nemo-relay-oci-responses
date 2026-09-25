@@ -1,0 +1,10 @@
+# local environment
+venv/
+__pycache__/
+*.pyc
+
+# private discussion thread and pasted blog text, not for publication
+nemo_relay
+
+# local editor / OS
+.DS_Store

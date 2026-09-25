@@ -1,0 +1,146 @@
+{
+  "agent": {
+    "model_name": "openai.gpt-oss-120b",
+    "name": "oci-responses-stream",
+    "version": "1.0.0"
+  },
+  "final_metrics": {
+    "total_cached_tokens": 64,
+    "total_completion_tokens": 83,
+    "total_prompt_tokens": 76,
+    "total_steps": 2
+  },
+  "schema_version": "ATIF-v1.7",
+  "session_id": "oci-responses-stream-session",
+  "steps": [
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a0d752-1d9d-7b31-ac64-fc11eef3c98b",
+          "function_name": "oci-responses-stream",
+          "parent_id": "01a0d752-1d9c-7f61-9d96-3c789e1c0a59",
+          "parent_name": "oci-responses-stream-agent"
+        },
+        "llm_request": {
+          "input": "Name three OCI regions, one per line.",
+          "max_output_tokens": 200,
+          "model": "openai.gpt-oss-120b"
+        }
+      },
+      "message": "Name three OCI regions, one per line.",
+      "source": "user",
+      "step_id": 1,
+      "timestamp": "2026-09-25T06:47:58.109294+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a0d752-1d9d-7b31-ac64-fc11eef3c98b",
+          "function_name": "oci-responses-stream",
+          "parent_id": "01a0d752-1d9c-7f61-9d96-3c789e1c0a59",
+          "parent_name": "oci-responses-stream-agent"
+        },
+        "invocation": {
+          "end_timestamp": 1790318879.383,
+          "framework": "nemo_relay",
+          "invocation_id": "01a0d752-1d9d-7b31-ac64-fc11eef3c98b",
+          "start_timestamp": 1790318878.109,
+          "status": "completed"
+        },
+        "llm_response": {
+          "background": false,
+          "created_at": 1790318878.0,
+          "frequency_penalty": 0.0,
+          "id": "resp_89c8f8bafbaabedf",
+          "max_output_tokens": 200,
+          "model": "openai.gpt-oss-120b",
+          "object": "response",
+          "output": [
+            {
+              "content": [
+                {
+                  "text": "The user wants three OCI (Oracle Cloud Infrastructure) regions, one per line. Provide three region names, each on its own line. Provide maybe \"US East (Ashburn)\", \"Asia Pacific (Tokyo)\", \"Europe (Frankfurt)\". Ensure each on separate line.",
+                  "type": "reasoning_text"
+                }
+              ],
+              "id": "rs_b2e54664033fcfad",
+              "summary": [],
+              "type": "reasoning"
+            },
+            {
+              "content": [
+                {
+                  "annotations": [],
+                  "text": "US East (Ashburn)  \nAsia Pacific (Tokyo)  \nEurope (Frankfurt)",
+                  "type": "output_text"
+                }
+              ],
+              "id": "msg_b54d9f76889b74bb",
+              "role": "assistant",
+              "status": "completed",
+              "type": "message"
+            }
+          ],
+          "parallel_tool_calls": true,
+          "presence_penalty": 0.0,
+          "service_tier": "auto",
+          "status": "completed",
+          "temperature": 1.0,
+          "tool_choice": "none",
+          "tools": [],
+          "top_p": 1.0,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 76,
+            "input_tokens_details": {
+              "cached_tokens": 64,
+              "cached_tokens_per_turn": [
+                64
+              ],
+              "input_tokens_per_turn": [
+                76
+              ]
+            },
+            "output_tokens": 83,
+            "output_tokens_details": {
+              "output_tokens_per_turn": [
+                83
+              ],
+              "reasoning_tokens": 56,
+              "tool_output_tokens": 0,
+              "tool_output_tokens_per_turn": [
+                0
+              ]
+            },
+            "total_tokens": 159
+          }
+        }
+      },
+      "llm_call_count": 1,
+      "message": "US East (Ashburn)  \nAsia Pacific (Tokyo)  \nEurope (Frankfurt)",
+      "metrics": {
+        "cached_tokens": 64,
+        "completion_tokens": 83,
+        "extra": {
+          "output_tokens_details": {
+            "output_tokens_per_turn": [
+              83
+            ],
+            "reasoning_tokens": 56,
+            "tool_output_tokens": 0,
+            "tool_output_tokens_per_turn": [
+              0
+            ]
+          },
+          "total_tokens": 159
+        },
+        "prompt_tokens": 76
+      },
+      "model_name": "openai.gpt-oss-120b",
+      "source": "agent",
+      "step_id": 2,
+      "timestamp": "2026-09-25T06:47:59.383972+00:00"
+    }
+  ],
+  "trajectory_id": "oci-responses-stream-session"
+}

@@ -1,0 +1,3101 @@
+[
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "kind": "llm_conditional_execution"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1b-7a22-9d3f-8dad80d764df",
+    "propagation_root_uuid": "01a0d75e-ef1b-7a22-9d3f-8dad80d764df",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:01:58.172860+00:00",
+    "uuid": "01a0d75e-ef1c-7bb2-a187-628af1e4a58d"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "allowed": false,
+      "rejected": true,
+      "rejection_reason": "blocked: requests for production credentials are not allowed"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1b-7a22-9d3f-8dad80d764df",
+    "propagation_root_uuid": "01a0d75e-ef1b-7a22-9d3f-8dad80d764df",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:01:58.173831+00:00",
+    "uuid": "01a0d75e-ef1c-7bb2-a187-628af1e4a58d"
+  },
+  {
+    "atof_version": "0.1",
+    "category": null,
+    "category_profile": null,
+    "data": {
+      "rejected": true,
+      "rejection_reason": "blocked: requests for production credentials are not allowed"
+    },
+    "data_schema": null,
+    "kind": "mark",
+    "metadata": null,
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1b-7a22-9d3f-8dad80d764df",
+    "propagation_root_uuid": "01a0d75e-ef1b-7a22-9d3f-8dad80d764df",
+    "timestamp": "2026-09-25T07:01:58.173848+00:00",
+    "uuid": "01a0d75e-ef1d-7181-b5d4-b97b11c82d86"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "agent",
+    "category_profile": null,
+    "data": null,
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "oci-responses-advisor",
+    "parent_uuid": "01a0d75e-ef1b-7a22-9d3f-8dad80d764df",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:01:58.174050+00:00",
+    "uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "kind": "llm_conditional_execution"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:01:58.174118+00:00",
+    "uuid": "01a0d75e-ef1e-7ca3-9f07-d4f4c3be7b90"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "allowed": true,
+      "rejected": false
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:01:58.174545+00:00",
+    "uuid": "01a0d75e-ef1e-7ca3-9f07-d4f4c3be7b90"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_request": {
+        "api_specific": {
+          "api": "openai_responses"
+        },
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "messages": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          }
+        ],
+        "model": "openai.gpt-oss-120b",
+        "params": {
+          "max_tokens": 1200
+        },
+        "tools": [
+          {
+            "function": {
+              "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+              "name": "list_genai_models",
+              "parameters": {
+                "properties": {
+                  "keyword": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "keyword"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          },
+          {
+            "function": {
+              "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+              "name": "gpu_capacity",
+              "parameters": {
+                "properties": {
+                  "gpu_family": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gpu_family"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "content": {
+        "input": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          }
+        ],
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "headers": {
+        "x-dynamo-session-id": "oci-responses-advisor"
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:01:58.174897+00:00",
+    "uuid": "01a0d75e-ef1e-7ca3-9f07-d5013cf26e3b"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_response": {
+        "api_specific": {
+          "api": "openai_responses",
+          "input_tokens_details": {
+            "cached_tokens": 80,
+            "cached_tokens_per_turn": [
+              80
+            ],
+            "input_tokens_per_turn": [
+              283
+            ]
+          },
+          "output_items": [
+            {
+              "content": [
+                {
+                  "text": "We need to use tools to search catalog for 'nemotron' and 'llama', and check A10 GPU service limits. Then recommend either using managed catalog model or self-hosting Nemotron on OKE, citing findings. Must be under 120 words.\n\nFirst call list_genai_models for 'nemamoto'? Actually 'nemotron'.",
+                  "type": "reasoning_text"
+                }
+              ],
+              "id": "rs_ad3964f25f1fb820",
+              "summary": [],
+              "type": "reasoning"
+            },
+            {
+              "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+              "call_id": "call_8c146e99abb6db0b",
+              "id": "fc_8c146e99abb6db0b",
+              "name": "list_genai_models",
+              "type": "function_call"
+            }
+          ],
+          "output_tokens_details": {
+            "output_tokens_per_turn": [
+              100
+            ],
+            "reasoning_tokens": 81,
+            "tool_output_tokens": 0,
+            "tool_output_tokens_per_turn": [
+              0
+            ]
+          },
+          "service_tier": "auto",
+          "status": "completed",
+          "truncation": "disabled"
+        },
+        "background": false,
+        "created_at": 1790319719.0,
+        "finish_reason": "complete",
+        "frequency_penalty": 0.0,
+        "id": "resp_91ff2c5aaa47960c",
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "object": "response",
+        "parallel_tool_calls": true,
+        "presence_penalty": 0.0,
+        "temperature": 1.0,
+        "tool_calls": [
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "id": "call_8c146e99abb6db0b",
+            "name": "list_genai_models"
+          }
+        ],
+        "tool_choice": "auto",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ],
+        "top_p": 1.0,
+        "usage": {
+          "cache_read_tokens": 80,
+          "completion_tokens": 100,
+          "cost": {
+            "currency": "USD",
+            "input": 3.045e-05,
+            "output": 6e-05,
+            "pricing_as_of": "2026-09-01",
+            "pricing_model": "openai.gpt-oss-120b",
+            "pricing_provider": "oci",
+            "pricing_source": "illustrative",
+            "source": "model_pricing"
+          },
+          "prompt_tokens": 283,
+          "total_tokens": 383,
+          "uncached_input_tokens": 203
+        }
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "background": false,
+      "created_at": 1790319719.0,
+      "frequency_penalty": 0.0,
+      "id": "resp_91ff2c5aaa47960c",
+      "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+      "max_output_tokens": 1200,
+      "model": "openai.gpt-oss-120b",
+      "object": "response",
+      "output": [
+        {
+          "content": [
+            {
+              "text": "We need to use tools to search catalog for 'nemotron' and 'llama', and check A10 GPU service limits. Then recommend either using managed catalog model or self-hosting Nemotron on OKE, citing findings. Must be under 120 words.\n\nFirst call list_genai_models for 'nemamoto'? Actually 'nemotron'.",
+              "type": "reasoning_text"
+            }
+          ],
+          "id": "rs_ad3964f25f1fb820",
+          "summary": [],
+          "type": "reasoning"
+        },
+        {
+          "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+          "call_id": "call_8c146e99abb6db0b",
+          "id": "fc_8c146e99abb6db0b",
+          "name": "list_genai_models",
+          "type": "function_call"
+        }
+      ],
+      "parallel_tool_calls": true,
+      "presence_penalty": 0.0,
+      "service_tier": "auto",
+      "status": "completed",
+      "temperature": 1.0,
+      "tool_choice": "auto",
+      "tools": [
+        {
+          "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+          "name": "list_genai_models",
+          "parameters": {
+            "properties": {
+              "keyword": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "keyword"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+          "name": "gpu_capacity",
+          "parameters": {
+            "properties": {
+              "gpu_family": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gpu_family"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        }
+      ],
+      "top_p": 1.0,
+      "truncation": "disabled",
+      "usage": {
+        "input_tokens": 283,
+        "input_tokens_details": {
+          "cached_tokens": 80,
+          "cached_tokens_per_turn": [
+            80
+          ],
+          "input_tokens_per_turn": [
+            283
+          ]
+        },
+        "output_tokens": 100,
+        "output_tokens_details": {
+          "output_tokens_per_turn": [
+            100
+          ],
+          "reasoning_tokens": 81,
+          "tool_output_tokens": 0,
+          "tool_output_tokens_per_turn": [
+            0
+          ]
+        },
+        "total_tokens": 383
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:00.142148+00:00",
+    "uuid": "01a0d75e-ef1e-7ca3-9f07-d5013cf26e3b"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_8c146e99abb6db0b"
+    },
+    "data": {
+      "keyword": "nemotron"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "list_genai_models",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:00.142494+00:00",
+    "uuid": "01a0d75e-f6ce-77c0-92ba-1de961e98b2e"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_8c146e99abb6db0b"
+    },
+    "data": {
+      "keyword": "nemotron",
+      "matches": [],
+      "region": "us-chicago-1"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "list_genai_models",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:01.459071+00:00",
+    "uuid": "01a0d75e-f6ce-77c0-92ba-1de961e98b2e"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "kind": "llm_conditional_execution"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:01.459425+00:00",
+    "uuid": "01a0d75e-fbf3-79d2-839b-d45335129e58"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "allowed": true,
+      "rejected": false
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:01.459641+00:00",
+    "uuid": "01a0d75e-fbf3-79d2-839b-d45335129e58"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_request": {
+        "api_specific": {
+          "api": "openai_responses"
+        },
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "messages": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          }
+        ],
+        "model": "openai.gpt-oss-120b",
+        "params": {
+          "max_tokens": 1200
+        },
+        "tools": [
+          {
+            "function": {
+              "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+              "name": "list_genai_models",
+              "parameters": {
+                "properties": {
+                  "keyword": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "keyword"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          },
+          {
+            "function": {
+              "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+              "name": "gpu_capacity",
+              "parameters": {
+                "properties": {
+                  "gpu_family": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gpu_family"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "content": {
+        "input": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          }
+        ],
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "headers": {
+        "x-dynamo-session-id": "oci-responses-advisor"
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:01.459684+00:00",
+    "uuid": "01a0d75e-fbf3-79d2-839b-d46e0908c938"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_response": {
+        "api_specific": {
+          "api": "openai_responses",
+          "input_tokens_details": {
+            "cached_tokens": 272,
+            "cached_tokens_per_turn": [
+              272
+            ],
+            "input_tokens_per_turn": [
+              343
+            ]
+          },
+          "output_items": [
+            {
+              "content": [
+                {
+                  "text": "We got no matches? Might need to search again. Possibly the catalog includes \"NEMOTRON-4B\" etc. Use search again.",
+                  "type": "reasoning_text"
+                }
+              ],
+              "id": "rs_9dc6d9c8a16299f9",
+              "summary": [],
+              "type": "reasoning"
+            },
+            {
+              "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+              "call_id": "call_bcdac44961c70bf6",
+              "id": "fc_bcdac44961c70bf6",
+              "name": "list_genai_models",
+              "type": "function_call"
+            }
+          ],
+          "output_tokens_details": {
+            "output_tokens_per_turn": [
+              61
+            ],
+            "reasoning_tokens": 42,
+            "tool_output_tokens": 0,
+            "tool_output_tokens_per_turn": [
+              0
+            ]
+          },
+          "service_tier": "auto",
+          "status": "completed",
+          "truncation": "disabled"
+        },
+        "background": false,
+        "created_at": 1790319722.0,
+        "finish_reason": "complete",
+        "frequency_penalty": 0.0,
+        "id": "resp_929984ad7c71ec66",
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "object": "response",
+        "parallel_tool_calls": true,
+        "presence_penalty": 0.0,
+        "temperature": 1.0,
+        "tool_calls": [
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "id": "call_bcdac44961c70bf6",
+            "name": "list_genai_models"
+          }
+        ],
+        "tool_choice": "auto",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ],
+        "top_p": 1.0,
+        "usage": {
+          "cache_read_tokens": 272,
+          "completion_tokens": 61,
+          "cost": {
+            "currency": "USD",
+            "input": 1.065e-05,
+            "output": 3.66e-05,
+            "pricing_as_of": "2026-09-01",
+            "pricing_model": "openai.gpt-oss-120b",
+            "pricing_provider": "oci",
+            "pricing_source": "illustrative",
+            "source": "model_pricing"
+          },
+          "prompt_tokens": 343,
+          "total_tokens": 404,
+          "uncached_input_tokens": 71
+        }
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "background": false,
+      "created_at": 1790319722.0,
+      "frequency_penalty": 0.0,
+      "id": "resp_929984ad7c71ec66",
+      "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+      "max_output_tokens": 1200,
+      "model": "openai.gpt-oss-120b",
+      "object": "response",
+      "output": [
+        {
+          "content": [
+            {
+              "text": "We got no matches? Might need to search again. Possibly the catalog includes \"NEMOTRON-4B\" etc. Use search again.",
+              "type": "reasoning_text"
+            }
+          ],
+          "id": "rs_9dc6d9c8a16299f9",
+          "summary": [],
+          "type": "reasoning"
+        },
+        {
+          "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+          "call_id": "call_bcdac44961c70bf6",
+          "id": "fc_bcdac44961c70bf6",
+          "name": "list_genai_models",
+          "type": "function_call"
+        }
+      ],
+      "parallel_tool_calls": true,
+      "presence_penalty": 0.0,
+      "service_tier": "auto",
+      "status": "completed",
+      "temperature": 1.0,
+      "tool_choice": "auto",
+      "tools": [
+        {
+          "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+          "name": "list_genai_models",
+          "parameters": {
+            "properties": {
+              "keyword": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "keyword"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+          "name": "gpu_capacity",
+          "parameters": {
+            "properties": {
+              "gpu_family": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gpu_family"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        }
+      ],
+      "top_p": 1.0,
+      "truncation": "disabled",
+      "usage": {
+        "input_tokens": 343,
+        "input_tokens_details": {
+          "cached_tokens": 272,
+          "cached_tokens_per_turn": [
+            272
+          ],
+          "input_tokens_per_turn": [
+            343
+          ]
+        },
+        "output_tokens": 61,
+        "output_tokens_details": {
+          "output_tokens_per_turn": [
+            61
+          ],
+          "reasoning_tokens": 42,
+          "tool_output_tokens": 0,
+          "tool_output_tokens_per_turn": [
+            0
+          ]
+        },
+        "total_tokens": 404
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:02.539613+00:00",
+    "uuid": "01a0d75e-fbf3-79d2-839b-d46e0908c938"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_bcdac44961c70bf6"
+    },
+    "data": {
+      "keyword": "nemotron"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "list_genai_models",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:02.540769+00:00",
+    "uuid": "01a0d75f-002c-7833-9270-43afb7ea3ad5"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_bcdac44961c70bf6"
+    },
+    "data": {
+      "keyword": "nemotron",
+      "matches": [],
+      "region": "us-chicago-1"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "list_genai_models",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:03.494196+00:00",
+    "uuid": "01a0d75f-002c-7833-9270-43afb7ea3ad5"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "kind": "llm_conditional_execution"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:03.494612+00:00",
+    "uuid": "01a0d75f-03e6-7643-a11d-fc567f9cfd2f"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "allowed": true,
+      "rejected": false
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:03.494843+00:00",
+    "uuid": "01a0d75f-03e6-7643-a11d-fc567f9cfd2f"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_request": {
+        "api_specific": {
+          "api": "openai_responses"
+        },
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "messages": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "call_id": "call_bcdac44961c70bf6",
+            "id": "fc_bcdac44961c70bf6",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_bcdac44961c70bf6",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          }
+        ],
+        "model": "openai.gpt-oss-120b",
+        "params": {
+          "max_tokens": 1200
+        },
+        "tools": [
+          {
+            "function": {
+              "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+              "name": "list_genai_models",
+              "parameters": {
+                "properties": {
+                  "keyword": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "keyword"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          },
+          {
+            "function": {
+              "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+              "name": "gpu_capacity",
+              "parameters": {
+                "properties": {
+                  "gpu_family": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gpu_family"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "content": {
+        "input": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+            "call_id": "call_bcdac44961c70bf6",
+            "id": "fc_bcdac44961c70bf6",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_bcdac44961c70bf6",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          }
+        ],
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "headers": {
+        "x-dynamo-session-id": "oci-responses-advisor"
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:03.494895+00:00",
+    "uuid": "01a0d75f-03e6-7643-a11d-fc6c07f4f453"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_response": {
+        "api_specific": {
+          "api": "openai_responses",
+          "input_tokens_details": {
+            "cached_tokens": 336,
+            "cached_tokens_per_turn": [
+              336
+            ],
+            "input_tokens_per_turn": [
+              403
+            ]
+          },
+          "output_items": [
+            {
+              "content": [
+                {
+                  "text": "We attempted to search for nemotron but got empty matches? Possibly because the catalog requires different region or maybe the tool returns matches but we didn't see. Maybe try again solely with keyword? The tool returns matches array; maybe we need to see actual model names. Let's try again with 'Nemotron' different case?",
+                  "type": "reasoning_text"
+                }
+              ],
+              "id": "rs_a64a10d2b93e8ca2",
+              "summary": [],
+              "type": "reasoning"
+            },
+            {
+              "arguments": "{\n  \"keyword\": \"Nemotron\"\n}",
+              "call_id": "call_b3c6c6bf2831c00e",
+              "id": "fc_b3c6c6bf2831c00e",
+              "name": "list_genai_models",
+              "type": "function_call"
+            }
+          ],
+          "output_tokens_details": {
+            "output_tokens_per_turn": [
+              94
+            ],
+            "reasoning_tokens": 75,
+            "tool_output_tokens": 0,
+            "tool_output_tokens_per_turn": [
+              0
+            ]
+          },
+          "service_tier": "auto",
+          "status": "completed",
+          "truncation": "disabled"
+        },
+        "background": false,
+        "created_at": 1790319723.0,
+        "finish_reason": "complete",
+        "frequency_penalty": 0.0,
+        "id": "resp_8b360fb14a16aceb",
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "object": "response",
+        "parallel_tool_calls": true,
+        "presence_penalty": 0.0,
+        "temperature": 1.0,
+        "tool_calls": [
+          {
+            "arguments": {
+              "keyword": "Nemotron"
+            },
+            "id": "call_b3c6c6bf2831c00e",
+            "name": "list_genai_models"
+          }
+        ],
+        "tool_choice": "auto",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ],
+        "top_p": 1.0,
+        "usage": {
+          "cache_read_tokens": 336,
+          "completion_tokens": 94,
+          "cost": {
+            "currency": "USD",
+            "input": 1.005e-05,
+            "output": 5.64e-05,
+            "pricing_as_of": "2026-09-01",
+            "pricing_model": "openai.gpt-oss-120b",
+            "pricing_provider": "oci",
+            "pricing_source": "illustrative",
+            "source": "model_pricing"
+          },
+          "prompt_tokens": 403,
+          "total_tokens": 497,
+          "uncached_input_tokens": 67
+        }
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "background": false,
+      "created_at": 1790319723.0,
+      "frequency_penalty": 0.0,
+      "id": "resp_8b360fb14a16aceb",
+      "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+      "max_output_tokens": 1200,
+      "model": "openai.gpt-oss-120b",
+      "object": "response",
+      "output": [
+        {
+          "content": [
+            {
+              "text": "We attempted to search for nemotron but got empty matches? Possibly because the catalog requires different region or maybe the tool returns matches but we didn't see. Maybe try again solely with keyword? The tool returns matches array; maybe we need to see actual model names. Let's try again with 'Nemotron' different case?",
+              "type": "reasoning_text"
+            }
+          ],
+          "id": "rs_a64a10d2b93e8ca2",
+          "summary": [],
+          "type": "reasoning"
+        },
+        {
+          "arguments": "{\n  \"keyword\": \"Nemotron\"\n}",
+          "call_id": "call_b3c6c6bf2831c00e",
+          "id": "fc_b3c6c6bf2831c00e",
+          "name": "list_genai_models",
+          "type": "function_call"
+        }
+      ],
+      "parallel_tool_calls": true,
+      "presence_penalty": 0.0,
+      "service_tier": "auto",
+      "status": "completed",
+      "temperature": 1.0,
+      "tool_choice": "auto",
+      "tools": [
+        {
+          "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+          "name": "list_genai_models",
+          "parameters": {
+            "properties": {
+              "keyword": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "keyword"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+          "name": "gpu_capacity",
+          "parameters": {
+            "properties": {
+              "gpu_family": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gpu_family"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        }
+      ],
+      "top_p": 1.0,
+      "truncation": "disabled",
+      "usage": {
+        "input_tokens": 403,
+        "input_tokens_details": {
+          "cached_tokens": 336,
+          "cached_tokens_per_turn": [
+            336
+          ],
+          "input_tokens_per_turn": [
+            403
+          ]
+        },
+        "output_tokens": 94,
+        "output_tokens_details": {
+          "output_tokens_per_turn": [
+            94
+          ],
+          "reasoning_tokens": 75,
+          "tool_output_tokens": 0,
+          "tool_output_tokens_per_turn": [
+            0
+          ]
+        },
+        "total_tokens": 497
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:04.892534+00:00",
+    "uuid": "01a0d75f-03e6-7643-a11d-fc6c07f4f453"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_b3c6c6bf2831c00e"
+    },
+    "data": {
+      "keyword": "Nemotron"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "list_genai_models",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:04.893834+00:00",
+    "uuid": "01a0d75f-095d-7891-8ea8-2bd573dcb6b7"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_b3c6c6bf2831c00e"
+    },
+    "data": {
+      "keyword": "Nemotron",
+      "matches": [],
+      "region": "us-chicago-1"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "list_genai_models",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:06.350928+00:00",
+    "uuid": "01a0d75f-095d-7891-8ea8-2bd573dcb6b7"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "kind": "llm_conditional_execution"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:06.351267+00:00",
+    "uuid": "01a0d75f-0f0f-75b2-917d-ea4a24a8b77c"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "allowed": true,
+      "rejected": false
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:06.351460+00:00",
+    "uuid": "01a0d75f-0f0f-75b2-917d-ea4a24a8b77c"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_request": {
+        "api_specific": {
+          "api": "openai_responses"
+        },
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "messages": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "call_id": "call_bcdac44961c70bf6",
+            "id": "fc_bcdac44961c70bf6",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_bcdac44961c70bf6",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "keyword": "Nemotron"
+            },
+            "call_id": "call_b3c6c6bf2831c00e",
+            "id": "fc_b3c6c6bf2831c00e",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_b3c6c6bf2831c00e",
+            "output": "{\"keyword\": \"Nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          }
+        ],
+        "model": "openai.gpt-oss-120b",
+        "params": {
+          "max_tokens": 1200
+        },
+        "tools": [
+          {
+            "function": {
+              "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+              "name": "list_genai_models",
+              "parameters": {
+                "properties": {
+                  "keyword": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "keyword"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          },
+          {
+            "function": {
+              "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+              "name": "gpu_capacity",
+              "parameters": {
+                "properties": {
+                  "gpu_family": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gpu_family"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "content": {
+        "input": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+            "call_id": "call_bcdac44961c70bf6",
+            "id": "fc_bcdac44961c70bf6",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_bcdac44961c70bf6",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"Nemotron\"\n}",
+            "call_id": "call_b3c6c6bf2831c00e",
+            "id": "fc_b3c6c6bf2831c00e",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_b3c6c6bf2831c00e",
+            "output": "{\"keyword\": \"Nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          }
+        ],
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "headers": {
+        "x-dynamo-session-id": "oci-responses-advisor"
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:06.351506+00:00",
+    "uuid": "01a0d75f-0f0f-75b2-917d-ea5b4ba05c25"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_response": {
+        "api_specific": {
+          "api": "openai_responses",
+          "input_tokens_details": {
+            "cached_tokens": 400,
+            "cached_tokens_per_turn": [
+              400
+            ],
+            "input_tokens_per_turn": [
+              463
+            ]
+          },
+          "output_items": [
+            {
+              "content": [
+                {
+                  "text": "We need also search for llama.",
+                  "type": "reasoning_text"
+                }
+              ],
+              "id": "rs_80e752787e447311",
+              "summary": [],
+              "type": "reasoning"
+            },
+            {
+              "arguments": "{\n  \"keyword\": \"llama\"\n}",
+              "call_id": "call_a2b5fd265a766326",
+              "id": "fc_a2b5fd265a766326",
+              "name": "list_genai_models",
+              "type": "function_call"
+            }
+          ],
+          "output_tokens_details": {
+            "output_tokens_per_turn": [
+              37
+            ],
+            "reasoning_tokens": 19,
+            "tool_output_tokens": 0,
+            "tool_output_tokens_per_turn": [
+              0
+            ]
+          },
+          "service_tier": "auto",
+          "status": "completed",
+          "truncation": "disabled"
+        },
+        "background": false,
+        "created_at": 1790319726.0,
+        "finish_reason": "complete",
+        "frequency_penalty": 0.0,
+        "id": "resp_a26dbc7eee20b875",
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "object": "response",
+        "parallel_tool_calls": true,
+        "presence_penalty": 0.0,
+        "temperature": 1.0,
+        "tool_calls": [
+          {
+            "arguments": {
+              "keyword": "llama"
+            },
+            "id": "call_a2b5fd265a766326",
+            "name": "list_genai_models"
+          }
+        ],
+        "tool_choice": "auto",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ],
+        "top_p": 1.0,
+        "usage": {
+          "cache_read_tokens": 400,
+          "completion_tokens": 37,
+          "cost": {
+            "currency": "USD",
+            "input": 9.45e-06,
+            "output": 2.22e-05,
+            "pricing_as_of": "2026-09-01",
+            "pricing_model": "openai.gpt-oss-120b",
+            "pricing_provider": "oci",
+            "pricing_source": "illustrative",
+            "source": "model_pricing"
+          },
+          "prompt_tokens": 463,
+          "total_tokens": 500,
+          "uncached_input_tokens": 63
+        }
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "background": false,
+      "created_at": 1790319726.0,
+      "frequency_penalty": 0.0,
+      "id": "resp_a26dbc7eee20b875",
+      "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+      "max_output_tokens": 1200,
+      "model": "openai.gpt-oss-120b",
+      "object": "response",
+      "output": [
+        {
+          "content": [
+            {
+              "text": "We need also search for llama.",
+              "type": "reasoning_text"
+            }
+          ],
+          "id": "rs_80e752787e447311",
+          "summary": [],
+          "type": "reasoning"
+        },
+        {
+          "arguments": "{\n  \"keyword\": \"llama\"\n}",
+          "call_id": "call_a2b5fd265a766326",
+          "id": "fc_a2b5fd265a766326",
+          "name": "list_genai_models",
+          "type": "function_call"
+        }
+      ],
+      "parallel_tool_calls": true,
+      "presence_penalty": 0.0,
+      "service_tier": "auto",
+      "status": "completed",
+      "temperature": 1.0,
+      "tool_choice": "auto",
+      "tools": [
+        {
+          "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+          "name": "list_genai_models",
+          "parameters": {
+            "properties": {
+              "keyword": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "keyword"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+          "name": "gpu_capacity",
+          "parameters": {
+            "properties": {
+              "gpu_family": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gpu_family"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        }
+      ],
+      "top_p": 1.0,
+      "truncation": "disabled",
+      "usage": {
+        "input_tokens": 463,
+        "input_tokens_details": {
+          "cached_tokens": 400,
+          "cached_tokens_per_turn": [
+            400
+          ],
+          "input_tokens_per_turn": [
+            463
+          ]
+        },
+        "output_tokens": 37,
+        "output_tokens_details": {
+          "output_tokens_per_turn": [
+            37
+          ],
+          "reasoning_tokens": 19,
+          "tool_output_tokens": 0,
+          "tool_output_tokens_per_turn": [
+            0
+          ]
+        },
+        "total_tokens": 500
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:06.820535+00:00",
+    "uuid": "01a0d75f-0f0f-75b2-917d-ea5b4ba05c25"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_a2b5fd265a766326"
+    },
+    "data": {
+      "keyword": "llama"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "list_genai_models",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:06.821372+00:00",
+    "uuid": "01a0d75f-10e5-7ab1-b3d7-682b2ca70805"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_a2b5fd265a766326"
+    },
+    "data": {
+      "keyword": "llama",
+      "matches": [
+        "meta.llama-3-70b-instruct",
+        "meta.llama-3.1-405b-instruct",
+        "meta.llama-3.1-70b-instruct",
+        "meta.llama-3.2-11b-vision-instruct",
+        "meta.llama-3.2-90b-vision-instruct",
+        "meta.llama-3.3-70b-instruct",
+        "meta.llama-4-maverick-17b-128e-instruct-fp8",
+        "meta.llama-4-scout-17b-16e-instruct",
+        "meta.llama-guard-4-12b"
+      ],
+      "region": "us-chicago-1"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "list_genai_models",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:07.746420+00:00",
+    "uuid": "01a0d75f-10e5-7ab1-b3d7-682b2ca70805"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "kind": "llm_conditional_execution"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:07.746776+00:00",
+    "uuid": "01a0d75f-1482-7153-a4a2-c704e8b5e056"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "allowed": true,
+      "rejected": false
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:07.746988+00:00",
+    "uuid": "01a0d75f-1482-7153-a4a2-c704e8b5e056"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_request": {
+        "api_specific": {
+          "api": "openai_responses"
+        },
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "messages": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "call_id": "call_bcdac44961c70bf6",
+            "id": "fc_bcdac44961c70bf6",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_bcdac44961c70bf6",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "keyword": "Nemotron"
+            },
+            "call_id": "call_b3c6c6bf2831c00e",
+            "id": "fc_b3c6c6bf2831c00e",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_b3c6c6bf2831c00e",
+            "output": "{\"keyword\": \"Nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "keyword": "llama"
+            },
+            "call_id": "call_a2b5fd265a766326",
+            "id": "fc_a2b5fd265a766326",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_a2b5fd265a766326",
+            "output": "{\"keyword\": \"llama\", \"matches\": [\"meta.llama-3-70b-instruct\", \"meta.llama-3.1-405b-instruct\", \"meta.llama-3.1-70b-instruct\", \"meta.llama-3.2-11b-vision-instruct\", \"meta.llama-3.2-90b-vision-instruct\", \"meta.llama-3.3-70b-instruct\", \"meta.llama-4-maverick-17b-128e-instruct-fp8\", \"meta.llama-4-scout-17b-16e-instruct\", \"meta.llama-guard-4-12b\"], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          }
+        ],
+        "model": "openai.gpt-oss-120b",
+        "params": {
+          "max_tokens": 1200
+        },
+        "tools": [
+          {
+            "function": {
+              "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+              "name": "list_genai_models",
+              "parameters": {
+                "properties": {
+                  "keyword": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "keyword"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          },
+          {
+            "function": {
+              "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+              "name": "gpu_capacity",
+              "parameters": {
+                "properties": {
+                  "gpu_family": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gpu_family"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "content": {
+        "input": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+            "call_id": "call_bcdac44961c70bf6",
+            "id": "fc_bcdac44961c70bf6",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_bcdac44961c70bf6",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"Nemotron\"\n}",
+            "call_id": "call_b3c6c6bf2831c00e",
+            "id": "fc_b3c6c6bf2831c00e",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_b3c6c6bf2831c00e",
+            "output": "{\"keyword\": \"Nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"llama\"\n}",
+            "call_id": "call_a2b5fd265a766326",
+            "id": "fc_a2b5fd265a766326",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_a2b5fd265a766326",
+            "output": "{\"keyword\": \"llama\", \"matches\": [\"meta.llama-3-70b-instruct\", \"meta.llama-3.1-405b-instruct\", \"meta.llama-3.1-70b-instruct\", \"meta.llama-3.2-11b-vision-instruct\", \"meta.llama-3.2-90b-vision-instruct\", \"meta.llama-3.3-70b-instruct\", \"meta.llama-4-maverick-17b-128e-instruct-fp8\", \"meta.llama-4-scout-17b-16e-instruct\", \"meta.llama-guard-4-12b\"], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          }
+        ],
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "headers": {
+        "x-dynamo-session-id": "oci-responses-advisor"
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:07.747037+00:00",
+    "uuid": "01a0d75f-1482-7153-a4a2-c71544d3721a"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_response": {
+        "api_specific": {
+          "api": "openai_responses",
+          "input_tokens_details": {
+            "cached_tokens": 448,
+            "cached_tokens_per_turn": [
+              448
+            ],
+            "input_tokens_per_turn": [
+              658
+            ]
+          },
+          "output_items": [
+            {
+              "content": [
+                {
+                  "text": "We have results: No Nemotron in catalog for region us-chicago-1. We have llama models available. Need to check GPU service limits for a10.",
+                  "type": "reasoning_text"
+                }
+              ],
+              "id": "rs_97004badbe48aa6e",
+              "summary": [],
+              "type": "reasoning"
+            },
+            {
+              "arguments": "{\n  \"gpu_family\": \"a10\"\n}",
+              "call_id": "call_8f67731add6e173b",
+              "id": "fc_8f67731add6e173b",
+              "name": "gpu_capacity",
+              "type": "function_call"
+            }
+          ],
+          "output_tokens_details": {
+            "output_tokens_per_turn": [
+              64
+            ],
+            "reasoning_tokens": 46,
+            "tool_output_tokens": 0,
+            "tool_output_tokens_per_turn": [
+              0
+            ]
+          },
+          "service_tier": "auto",
+          "status": "completed",
+          "truncation": "disabled"
+        },
+        "background": false,
+        "created_at": 1790319727.0,
+        "finish_reason": "complete",
+        "frequency_penalty": 0.0,
+        "id": "resp_acba67a8bc0df48f",
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "object": "response",
+        "parallel_tool_calls": true,
+        "presence_penalty": 0.0,
+        "temperature": 1.0,
+        "tool_calls": [
+          {
+            "arguments": {
+              "gpu_family": "a10"
+            },
+            "id": "call_8f67731add6e173b",
+            "name": "gpu_capacity"
+          }
+        ],
+        "tool_choice": "auto",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ],
+        "top_p": 1.0,
+        "usage": {
+          "cache_read_tokens": 448,
+          "completion_tokens": 64,
+          "cost": {
+            "currency": "USD",
+            "input": 3.15e-05,
+            "output": 3.84e-05,
+            "pricing_as_of": "2026-09-01",
+            "pricing_model": "openai.gpt-oss-120b",
+            "pricing_provider": "oci",
+            "pricing_source": "illustrative",
+            "source": "model_pricing"
+          },
+          "prompt_tokens": 658,
+          "total_tokens": 722,
+          "uncached_input_tokens": 210
+        }
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "background": false,
+      "created_at": 1790319727.0,
+      "frequency_penalty": 0.0,
+      "id": "resp_acba67a8bc0df48f",
+      "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+      "max_output_tokens": 1200,
+      "model": "openai.gpt-oss-120b",
+      "object": "response",
+      "output": [
+        {
+          "content": [
+            {
+              "text": "We have results: No Nemotron in catalog for region us-chicago-1. We have llama models available. Need to check GPU service limits for a10.",
+              "type": "reasoning_text"
+            }
+          ],
+          "id": "rs_97004badbe48aa6e",
+          "summary": [],
+          "type": "reasoning"
+        },
+        {
+          "arguments": "{\n  \"gpu_family\": \"a10\"\n}",
+          "call_id": "call_8f67731add6e173b",
+          "id": "fc_8f67731add6e173b",
+          "name": "gpu_capacity",
+          "type": "function_call"
+        }
+      ],
+      "parallel_tool_calls": true,
+      "presence_penalty": 0.0,
+      "service_tier": "auto",
+      "status": "completed",
+      "temperature": 1.0,
+      "tool_choice": "auto",
+      "tools": [
+        {
+          "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+          "name": "list_genai_models",
+          "parameters": {
+            "properties": {
+              "keyword": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "keyword"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+          "name": "gpu_capacity",
+          "parameters": {
+            "properties": {
+              "gpu_family": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gpu_family"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        }
+      ],
+      "top_p": 1.0,
+      "truncation": "disabled",
+      "usage": {
+        "input_tokens": 658,
+        "input_tokens_details": {
+          "cached_tokens": 448,
+          "cached_tokens_per_turn": [
+            448
+          ],
+          "input_tokens_per_turn": [
+            658
+          ]
+        },
+        "output_tokens": 64,
+        "output_tokens_details": {
+          "output_tokens_per_turn": [
+            64
+          ],
+          "reasoning_tokens": 46,
+          "tool_output_tokens": 0,
+          "tool_output_tokens_per_turn": [
+            0
+          ]
+        },
+        "total_tokens": 722
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:08.450228+00:00",
+    "uuid": "01a0d75f-1482-7153-a4a2-c71544d3721a"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_8f67731add6e173b"
+    },
+    "data": {
+      "gpu_family": "a10"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "gpu_capacity",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:08.451350+00:00",
+    "uuid": "01a0d75f-1743-7e51-acb0-869c61c7785e"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "tool",
+    "category_profile": {
+      "tool_call_id": "call_8f67731add6e173b"
+    },
+    "data": {
+      "by_ad": [
+        {
+          "ad": "VbEn:US-CHICAGO-1-AD-1",
+          "available": 0,
+          "used": 0
+        },
+        {
+          "ad": "VbEn:US-CHICAGO-1-AD-2",
+          "available": 32,
+          "used": 0
+        },
+        {
+          "ad": "VbEn:US-CHICAGO-1-AD-3",
+          "available": 0,
+          "used": 0
+        }
+      ],
+      "limit": "gpu-a10-count",
+      "region": "us-chicago-1"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "gpu_capacity",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:11.827945+00:00",
+    "uuid": "01a0d75f-1743-7e51-acb0-869c61c7785e"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "kind": "llm_conditional_execution"
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:11.828291+00:00",
+    "uuid": "01a0d75f-2474-7be2-bc32-14c3b240ba18"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "guardrail",
+    "category_profile": null,
+    "data": {
+      "allowed": true,
+      "rejected": false
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "block-secrets",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:11.828539+00:00",
+    "uuid": "01a0d75f-2474-7be2-bc32-14c3b240ba18"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_request": {
+        "api_specific": {
+          "api": "openai_responses"
+        },
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "messages": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "keyword": "nemotron"
+            },
+            "call_id": "call_bcdac44961c70bf6",
+            "id": "fc_bcdac44961c70bf6",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_bcdac44961c70bf6",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "keyword": "Nemotron"
+            },
+            "call_id": "call_b3c6c6bf2831c00e",
+            "id": "fc_b3c6c6bf2831c00e",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_b3c6c6bf2831c00e",
+            "output": "{\"keyword\": \"Nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "keyword": "llama"
+            },
+            "call_id": "call_a2b5fd265a766326",
+            "id": "fc_a2b5fd265a766326",
+            "name": "list_genai_models",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_a2b5fd265a766326",
+            "output": "{\"keyword\": \"llama\", \"matches\": [\"meta.llama-3-70b-instruct\", \"meta.llama-3.1-405b-instruct\", \"meta.llama-3.1-70b-instruct\", \"meta.llama-3.2-11b-vision-instruct\", \"meta.llama-3.2-90b-vision-instruct\", \"meta.llama-3.3-70b-instruct\", \"meta.llama-4-maverick-17b-128e-instruct-fp8\", \"meta.llama-4-scout-17b-16e-instruct\", \"meta.llama-guard-4-12b\"], \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          },
+          {
+            "arguments": {
+              "gpu_family": "a10"
+            },
+            "call_id": "call_8f67731add6e173b",
+            "id": "fc_8f67731add6e173b",
+            "name": "gpu_capacity",
+            "role": "tool_call"
+          },
+          {
+            "call_id": "call_8f67731add6e173b",
+            "output": "{\"by_ad\": [{\"ad\": \"VbEn:US-CHICAGO-1-AD-1\", \"available\": 0, \"used\": 0}, {\"ad\": \"VbEn:US-CHICAGO-1-AD-2\", \"available\": 32, \"used\": 0}, {\"ad\": \"VbEn:US-CHICAGO-1-AD-3\", \"available\": 0, \"used\": 0}], \"limit\": \"gpu-a10-count\", \"region\": \"us-chicago-1\"}",
+            "role": "tool_result"
+          }
+        ],
+        "model": "openai.gpt-oss-120b",
+        "params": {
+          "max_tokens": 1200
+        },
+        "tools": [
+          {
+            "function": {
+              "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+              "name": "list_genai_models",
+              "parameters": {
+                "properties": {
+                  "keyword": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "keyword"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          },
+          {
+            "function": {
+              "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+              "name": "gpu_capacity",
+              "parameters": {
+                "properties": {
+                  "gpu_family": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gpu_family"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "content": {
+        "input": [
+          {
+            "content": "We want to run NVIDIA Nemotron on this OCI tenancy (requested by j*******************). Which path should we take?",
+            "role": "user"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+            "call_id": "call_8c146e99abb6db0b",
+            "id": "fc_8c146e99abb6db0b",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_8c146e99abb6db0b",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"nemotron\"\n}",
+            "call_id": "call_bcdac44961c70bf6",
+            "id": "fc_bcdac44961c70bf6",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_bcdac44961c70bf6",
+            "output": "{\"keyword\": \"nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"Nemotron\"\n}",
+            "call_id": "call_b3c6c6bf2831c00e",
+            "id": "fc_b3c6c6bf2831c00e",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_b3c6c6bf2831c00e",
+            "output": "{\"keyword\": \"Nemotron\", \"matches\": [], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"keyword\": \"llama\"\n}",
+            "call_id": "call_a2b5fd265a766326",
+            "id": "fc_a2b5fd265a766326",
+            "name": "list_genai_models",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_a2b5fd265a766326",
+            "output": "{\"keyword\": \"llama\", \"matches\": [\"meta.llama-3-70b-instruct\", \"meta.llama-3.1-405b-instruct\", \"meta.llama-3.1-70b-instruct\", \"meta.llama-3.2-11b-vision-instruct\", \"meta.llama-3.2-90b-vision-instruct\", \"meta.llama-3.3-70b-instruct\", \"meta.llama-4-maverick-17b-128e-instruct-fp8\", \"meta.llama-4-scout-17b-16e-instruct\", \"meta.llama-guard-4-12b\"], \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          },
+          {
+            "arguments": "{\n  \"gpu_family\": \"a10\"\n}",
+            "call_id": "call_8f67731add6e173b",
+            "id": "fc_8f67731add6e173b",
+            "name": "gpu_capacity",
+            "type": "function_call"
+          },
+          {
+            "call_id": "call_8f67731add6e173b",
+            "output": "{\"by_ad\": [{\"ad\": \"VbEn:US-CHICAGO-1-AD-1\", \"available\": 0, \"used\": 0}, {\"ad\": \"VbEn:US-CHICAGO-1-AD-2\", \"available\": 32, \"used\": 0}, {\"ad\": \"VbEn:US-CHICAGO-1-AD-3\", \"available\": 0, \"used\": 0}], \"limit\": \"gpu-a10-count\", \"region\": \"us-chicago-1\"}",
+            "type": "function_call_output"
+          }
+        ],
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "model": "openai.gpt-oss-120b",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "headers": {
+        "x-dynamo-session-id": "oci-responses-advisor"
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": null,
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "start",
+    "timestamp": "2026-09-25T07:02:11.828593+00:00",
+    "uuid": "01a0d75f-2474-7be2-bc32-14d9cc4f0bac"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "llm",
+    "category_profile": {
+      "annotated_response": {
+        "api_specific": {
+          "api": "openai_responses",
+          "input_tokens_details": {
+            "cached_tokens": 656,
+            "cached_tokens_per_turn": [
+              656
+            ],
+            "input_tokens_per_turn": [
+              815
+            ]
+          },
+          "output_items": [
+            {
+              "content": [
+                {
+                  "text": "We have catalog search results: No Nemotron models in catalog. Llama models are present. GPU limits: A10 GPUs: AD1 0 available, AD2 32 available, AD3 0. So we can self-host Nemotron on OKE using A10 GPUs (if require GPUs). Since the catalog has no Nemotron, managed model not available. Recommend self-hosting on OKE using A10 GPUs (using AD2). Also can mention possibility of using Llama models via managed service as alternative.\n\nNeed to answer under 120 words. Provide recommendation.",
+                  "type": "reasoning_text"
+                }
+              ],
+              "id": "rs_847e2131f66d92ed",
+              "summary": [],
+              "type": "reasoning"
+            },
+            {
+              "content": [
+                {
+                  "annotations": [],
+                  "text": "The catalog search returned **no Nemotron models** \u2013 only Llama\u20113/4 variants are offered as managed services. Since you need Nemotron, the only viable route is to **self\u2011host** it on Oracle\u202fKubernetes Engine (OKE) using GPU\u2011accelerated nodes.\n\nYour tenancy\u2019s A10\u2011GPU limits in **us\u2011chicago\u20111** show\u202f32\u202fA10 GPUs available in AD\u20112 (0 in AD\u20111 & AD\u20113). Deploy a node pool in that AD with the required number of A10\u2011GPU shapes, pull the Nemotron container image, and run it behind a Load\u2011Balancer or OCI Service Mesh.\n\nThus, self\u2011hosting Nemotron on OKE (AD\u20112) is the recommended path.",
+                  "type": "output_text"
+                }
+              ],
+              "id": "msg_92e6a8ea3b74c20d",
+              "role": "assistant",
+              "status": "completed",
+              "type": "message"
+            }
+          ],
+          "output_tokens_details": {
+            "output_tokens_per_turn": [
+              284
+            ],
+            "reasoning_tokens": 118,
+            "tool_output_tokens": 0,
+            "tool_output_tokens_per_turn": [
+              0
+            ]
+          },
+          "service_tier": "auto",
+          "status": "completed",
+          "truncation": "disabled"
+        },
+        "background": false,
+        "created_at": 1790319731.0,
+        "finish_reason": "complete",
+        "frequency_penalty": 0.0,
+        "id": "resp_aa5c19728d9a7cd6",
+        "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+        "max_output_tokens": 1200,
+        "message": "The catalog search returned **no Nemotron models** \u2013 only Llama\u20113/4 variants are offered as managed services. Since you need Nemotron, the only viable route is to **self\u2011host** it on Oracle\u202fKubernetes Engine (OKE) using GPU\u2011accelerated nodes.\n\nYour tenancy\u2019s A10\u2011GPU limits in **us\u2011chicago\u20111** show\u202f32\u202fA10 GPUs available in AD\u20112 (0 in AD\u20111 & AD\u20113). Deploy a node pool in that AD with the required number of A10\u2011GPU shapes, pull the Nemotron container image, and run it behind a Load\u2011Balancer or OCI Service Mesh.\n\nThus, self\u2011hosting Nemotron on OKE (AD\u20112) is the recommended path.",
+        "model": "openai.gpt-oss-120b",
+        "object": "response",
+        "parallel_tool_calls": true,
+        "presence_penalty": 0.0,
+        "temperature": 1.0,
+        "tool_choice": "auto",
+        "tools": [
+          {
+            "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+            "name": "list_genai_models",
+            "parameters": {
+              "properties": {
+                "keyword": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "keyword"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          },
+          {
+            "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+            "name": "gpu_capacity",
+            "parameters": {
+              "properties": {
+                "gpu_family": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "gpu_family"
+              ],
+              "type": "object"
+            },
+            "type": "function"
+          }
+        ],
+        "top_p": 1.0,
+        "usage": {
+          "cache_read_tokens": 656,
+          "completion_tokens": 284,
+          "cost": {
+            "currency": "USD",
+            "input": 2.385e-05,
+            "output": 0.0001704,
+            "pricing_as_of": "2026-09-01",
+            "pricing_model": "openai.gpt-oss-120b",
+            "pricing_provider": "oci",
+            "pricing_source": "illustrative",
+            "source": "model_pricing"
+          },
+          "prompt_tokens": 815,
+          "total_tokens": 1099,
+          "uncached_input_tokens": 159
+        }
+      },
+      "model_name": "openai.gpt-oss-120b"
+    },
+    "data": {
+      "background": false,
+      "created_at": 1790319731.0,
+      "frequency_penalty": 0.0,
+      "id": "resp_aa5c19728d9a7cd6",
+      "instructions": "You are an Oracle Cloud deployment advisor. Use the tools before answering: search the catalog for 'nemotron' and for 'llama', and check the A10 GPU service limits. Then recommend, in under 120 words, either a managed catalog model or self-hosting Nemotron on OKE, citing what you found.",
+      "max_output_tokens": 1200,
+      "model": "openai.gpt-oss-120b",
+      "object": "response",
+      "output": [
+        {
+          "content": [
+            {
+              "text": "We have catalog search results: No Nemotron models in catalog. Llama models are present. GPU limits: A10 GPUs: AD1 0 available, AD2 32 available, AD3 0. So we can self-host Nemotron on OKE using A10 GPUs (if require GPUs). Since the catalog has no Nemotron, managed model not available. Recommend self-hosting on OKE using A10 GPUs (using AD2). Also can mention possibility of using Llama models via managed service as alternative.\n\nNeed to answer under 120 words. Provide recommendation.",
+              "type": "reasoning_text"
+            }
+          ],
+          "id": "rs_847e2131f66d92ed",
+          "summary": [],
+          "type": "reasoning"
+        },
+        {
+          "content": [
+            {
+              "annotations": [],
+              "text": "The catalog search returned **no Nemotron models** \u2013 only Llama\u20113/4 variants are offered as managed services. Since you need Nemotron, the only viable route is to **self\u2011host** it on Oracle\u202fKubernetes Engine (OKE) using GPU\u2011accelerated nodes.\n\nYour tenancy\u2019s A10\u2011GPU limits in **us\u2011chicago\u20111** show\u202f32\u202fA10 GPUs available in AD\u20112 (0 in AD\u20111 & AD\u20113). Deploy a node pool in that AD with the required number of A10\u2011GPU shapes, pull the Nemotron container image, and run it behind a Load\u2011Balancer or OCI Service Mesh.\n\nThus, self\u2011hosting Nemotron on OKE (AD\u20112) is the recommended path.",
+              "type": "output_text"
+            }
+          ],
+          "id": "msg_92e6a8ea3b74c20d",
+          "role": "assistant",
+          "status": "completed",
+          "type": "message"
+        }
+      ],
+      "parallel_tool_calls": true,
+      "presence_penalty": 0.0,
+      "service_tier": "auto",
+      "status": "completed",
+      "temperature": 1.0,
+      "tool_choice": "auto",
+      "tools": [
+        {
+          "description": "Search the managed OCI Generative AI model catalog by keyword (e.g. 'nemotron', 'llama').",
+          "name": "list_genai_models",
+          "parameters": {
+            "properties": {
+              "keyword": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "keyword"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        },
+        {
+          "description": "Read the tenancy's GPU service limits (available and used GPU count) per availability domain for a GPU family such as 'a10' or 'a100-v2'.",
+          "name": "gpu_capacity",
+          "parameters": {
+            "properties": {
+              "gpu_family": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gpu_family"
+            ],
+            "type": "object"
+          },
+          "type": "function"
+        }
+      ],
+      "top_p": 1.0,
+      "truncation": "disabled",
+      "usage": {
+        "input_tokens": 815,
+        "input_tokens_details": {
+          "cached_tokens": 656,
+          "cached_tokens_per_turn": [
+            656
+          ],
+          "input_tokens_per_turn": [
+            815
+          ]
+        },
+        "output_tokens": 284,
+        "output_tokens_details": {
+          "output_tokens_per_turn": [
+            284
+          ],
+          "reasoning_tokens": 118,
+          "tool_output_tokens": 0,
+          "tool_output_tokens_per_turn": [
+            0
+          ]
+        },
+        "total_tokens": 1099
+      }
+    },
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "oci-responses",
+    "parent_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:14.552292+00:00",
+    "uuid": "01a0d75f-2474-7be2-bc32-14d9cc4f0bac"
+  },
+  {
+    "atof_version": "0.1",
+    "attributes": [],
+    "category": "agent",
+    "category_profile": null,
+    "data": null,
+    "data_schema": null,
+    "kind": "scope",
+    "metadata": {
+      "otel.status_code": "OK"
+    },
+    "name": "oci-responses-advisor",
+    "parent_uuid": "01a0d75e-ef1b-7a22-9d3f-8dad80d764df",
+    "propagation_root_uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241",
+    "scope_category": "end",
+    "timestamp": "2026-09-25T07:02:14.553290+00:00",
+    "uuid": "01a0d75e-ef1e-7ca3-9f07-d4ece0c9f241"
+  }
+]
